@@ -1,5 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { MatDialog, MatDialogConfig,} from '@angular/material/dialog';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { MessengerService } from 'src/app/services/messenger.service';
+
+
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
@@ -8,10 +13,31 @@ import { Product } from 'src/app/models/product';
 export class ProductItemComponent implements OnInit {
   
   @Input() productItem: Product
-
-  constructor() { }
+  
+  constructor( public matDialog: MatDialog, private msg: MessengerService ) { }
 
   ngOnInit(): void {
   }
 
-}
+    openModal() {
+      const dialogConfig = new MatDialogConfig();
+      dialogConfig.disableClose = true;
+      dialogConfig.id = "modal-component";
+      dialogConfig.height = "350px";
+      dialogConfig.width = "600px";
+      dialogConfig.data = {
+        name: this.productItem.name,
+        description: this.productItem.description,
+        price: this.productItem.price,
+        img: this.productItem.imgUrl
+      }
+
+      const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+    }
+
+    addToCart() {
+      this.msg.sendMsg(this.productItem);
+    }
+  }
+
+

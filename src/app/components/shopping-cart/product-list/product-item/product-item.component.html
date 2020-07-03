@@ -1,15 +1,14 @@
 <div class="card mb-4 shadow-sm">
-    <img class="bd-placeholder-img card-img-top p-1" width="100%" [src]="productItem.imgUrl"> 
+    <img class="bd-placeholder-img card-img-top p-1" width="100%" [src]="productItem?.imgUrl">
     <div class="card-body">
        <p class="card-text">
-           <strong>{{ productItem.price | currency }}</strong>
+           <strong>{{ productItem?.price | currency }}</strong>
        </p>
-      <p class="card-text">{{ productItem.description |slice: 0:60 }}</p>
+      <p class="card-text">{{ productItem?.description | slice: 0:60 }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
-          <button type="button" class="btn btn-sm btn-primary card_btn">Add to cart</button>
-          <button type="button" class="btn btn-sm btn-outline-secondary card_btn">View details</button>
+          <button type="button" (click)="addToCart()" class="btn btn-sm btn-primary card_btn">Add to cart</button>
+          <button mat-raised-button type="button" class="btn btn-sm btn-outline-secondary card_btn" (click)="openModal()">View Detail</button>
         </div>
-    
       </div>
     </div>

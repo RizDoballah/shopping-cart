@@ -1,0 +1,17 @@
+<div id="modal-content-wrapper">
+    <header id="modal-header">
+        <h1 id="modal-title">{{ modalData.name }}</h1>
+    </header>
+    <section id="modal-body">
+        <img class="modal_img" [src]="modalData.img" alt="">
+        <p>{{ modalData.description }}</p>
+        <p>{{ modalData.price | currency }}</p>
+    </section>
+    <footer id="modal-footer">
+        <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">
+            Go back
+        </button>
+    </footer>
+</div>
+
+
