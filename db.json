@@ -1,68 +1,126 @@
 {
-"products": [
-
-  {
-    "id": 1,
-    "name": "Wilson",
-    "description": "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia",
-    "imgUrl": "https://shop.wilson.com/it-it/media/catalog/product/cache/154/image/1800x/040ec09b1e35df139433887a97daa66f/7/b/7b75c41f5bb94ce53bc4b37a8de61cc04f6d22f2_wrt73741u_ultra_100l_blue_light_blue_side.jpg",
-    "price": 199
-  },
-  {
-    "id": 2,
-    "name": "Babolat",
-    "description": "um iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatu",
-    "imgUrl": "https://contents.mediadecathlon.com/p1249301/kc9ce65011efb653d4f550fd1cf5046b4/1249301_default.jpg?format=auto&quality=60&f=800x0",
-    "price": 159
-  },
-  {
-    "id": 3,
-    "name": "Yonex",
-    "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
-    "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
-    "price": 189
-  },
-  {
-    "id": 4,
-    "name": "Dunlop",
-    "description": "itatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
-    "imgUrl": "https://tennisscanner.it/wp-content/uploads/2018/04/dunlop-nt-r30racchetta-da-tennis-unisex-nt-r30-gelb-4.jpg",
-    "price": 280
-  },
-  {
-    "id": 5,
-    "name": "Head",
-    "description": "xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
-    "imgUrl": "https://s2.tengotenis.com/12264-large_default/wilson-ultra-100cv.jpg",
-    "price": 280
-  },
-  {
-    "id": 6,
-    "name": "Prince",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
-    "imgUrl": "https://tennisscanner.it/wp-content/uploads/2018/04/dunlop-nt-r30racchetta-da-tennis-unisex-nt-r30-gelb-4.jpg",
-    "price": 180
-  }
-
-], 
-
-"cart": [],
-
-  "posts": [
+  "products": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "name": "Wilson",
+      "description": "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia",
+      "imgUrl": "https://shop.wilson.com/it-it/media/catalog/product/cache/154/image/1800x/040ec09b1e35df139433887a97daa66f/7/b/7b75c41f5bb94ce53bc4b37a8de61cc04f6d22f2_wrt73741u_ultra_100l_blue_light_blue_side.jpg",
+      "price": 199
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id": 2,
+      "name": "Babolat",
+      "description": "um iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatu",
+      "imgUrl": "https://contents.mediadecathlon.com/p1249301/kc9ce65011efb653d4f550fd1cf5046b4/1249301_default.jpg?format=auto&quality=60&f=800x0",
+      "price": 159
+    },
+    {
+      "id": 3,
+      "name": "Yonex",
+      "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+      "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+      "price": 189
+    },
+    {
+      "id": 4,
+      "name": "Dunlop",
+      "description": "itatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur",
+      "imgUrl": "https://tennisscanner.it/wp-content/uploads/2018/04/dunlop-nt-r30racchetta-da-tennis-unisex-nt-r30-gelb-4.jpg",
+      "price": 280
+    },
+    {
+      "id": 5,
+      "name": "Head",
+      "description": "xercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur",
+      "imgUrl": "https://s2.tengotenis.com/12264-large_default/wilson-ultra-100cv.jpg",
+      "price": 280
+    },
+    {
+      "id": 6,
+      "name": "Prince",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
+      "imgUrl": "https://tennisscanner.it/wp-content/uploads/2018/04/dunlop-nt-r30racchetta-da-tennis-unisex-nt-r30-gelb-4.jpg",
+      "price": 180
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "cart": [
+    {
+      "product": {
+        "id": 3,
+        "name": "Yonex",
+        "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+        "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+        "price": 189
+      },
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Yonex",
+        "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+        "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+        "price": 189
+      },
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Babolat",
+        "description": "um iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatu",
+        "imgUrl": "https://contents.mediadecathlon.com/p1249301/kc9ce65011efb653d4f550fd1cf5046b4/1249301_default.jpg?format=auto&quality=60&f=800x0",
+        "price": 159
+      },
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Yonex",
+        "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+        "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+        "price": 189
+      },
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Babolat",
+        "description": "um iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatu",
+        "imgUrl": "https://contents.mediadecathlon.com/p1249301/kc9ce65011efb653d4f550fd1cf5046b4/1249301_default.jpg?format=auto&quality=60&f=800x0",
+        "price": 159
+      },
+      "id": 5
+    },
+    {
+      "product": {
+        "id": 1,
+        "name": "Wilson",
+        "description": "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia",
+        "imgUrl": "https://shop.wilson.com/it-it/media/catalog/product/cache/154/image/1800x/040ec09b1e35df139433887a97daa66f/7/b/7b75c41f5bb94ce53bc4b37a8de61cc04f6d22f2_wrt73741u_ultra_100l_blue_light_blue_side.jpg",
+        "price": 199
+      },
+      "id": 6
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Yonex",
+        "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+        "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+        "price": 189
+      },
+      "id": 7
+    }
+  ],
+  "wishlist": [
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ]
 }

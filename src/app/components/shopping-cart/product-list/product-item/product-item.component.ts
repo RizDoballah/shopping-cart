@@ -3,6 +3,9 @@ import { Product } from 'src/app/models/product';
 import { MatDialog, MatDialogConfig,} from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
 import { MessengerService } from 'src/app/services/messenger.service';
+import { WishlistService } from 'src/app/services/wishlist.service';
+import { CartService } from 'src/app/services/cart.service';
+
 
 
 @Component({
@@ -13,8 +16,13 @@ import { MessengerService } from 'src/app/services/messenger.service';
 export class ProductItemComponent implements OnInit {
   
   @Input() productItem: Product
+
+  @Input() addedToWishlist: boolean
   
-  constructor( public matDialog: MatDialog, private msg: MessengerService ) { }
+  constructor( public matDialog: MatDialog,
+     private msg: MessengerService,
+      private wishlistService: WishlistService,
+      private cartservice: CartService ) { }
 
   ngOnInit(): void {
   }
@@ -35,9 +43,25 @@ export class ProductItemComponent implements OnInit {
       const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
     }
 
-    addToCart() {
-      this.msg.sendMsg(this.productItem);
+    handleAddToCart() {
+      this.cartservice.addToCart(this.productItem).subscribe(() => {
+        this.msg.sendMsg(this.productItem);
+      })
+     
     }
+
+    handleAddToWishlist() {
+      this.wishlistService.addToWishlist(this.productItem.id).subscribe(() => {
+        this.addedToWishlist = true;
+      })
+    }
+  
+    handleRemoveFromWishlist() {
+      this.wishlistService.removeFromWishlist(this.productItem.id).subscribe(() => {
+        this.addedToWishlist = false;
+      })
+    }
+
   }
 
 

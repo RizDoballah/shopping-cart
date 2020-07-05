@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MessengerService } from 'src/app/services/messenger.service';
 import { Product } from 'src/app/models/product';
+import { CartService } from 'src/app/services/cart.service';
+import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
   selector: 'app-cart',
@@ -9,54 +11,73 @@ import { Product } from 'src/app/models/product';
 })
 export class CartComponent implements OnInit {
 
-  cartItems = [
-    // {id: 1 , productId: 1, productName: "Yonex", qty: 1, price: 100},
-    // {id: 2 , productId: 2, productName: "Wilson", qty: 1, price: 200},
-  ];
+  cartItems = []
+ 
   cartTotal = 0
 
-  constructor(private msg: MessengerService) { }
+  constructor(private msg: MessengerService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.handleSubscription();
+    this.loadCartItems();
+    
+  }
+
+  handleSubscription() {
     this.msg.getMsg().subscribe((product: Product) => {
-      this.addProductToCart(product)
+      this.loadCartItems();
     })
   }
 
-  addProductToCart( product: Product ) {
+  loadCartItems() {
+    this.cartService.getCartItems().subscribe((items: CartItem[]) => {
+      this.cartItems =items;
+      this.calcCartTotal();
+    })
+  }
 
-      if (this.cartItems.length === 0) {
-        this.cartItems.push({
-          productId: product.id,
-          productName: product.name,
-          qty: 1,
-          price: product.price
-        })
-        this.cartTotal = 0
-        this.cartItems.forEach(item => {
-          this.cartTotal += (item.qty * item.price)
-      })
-
-      } else {
-        for (let i in this.cartItems) {
-          if(this.cartItems[i].productId === product.id ) { 
-          this.cartItems[i].qty++
-        } else {
-          this.cartItems.push({
-            productId: product.id,
-            productName: product.name,
-            qty: 1,
-            price: product.price
-          })
-          this.cartTotal = 0
-          this.cartItems.forEach(item => {
-            this.cartTotal += (item.qty * item.price)
-        })
-
-        }
-          
-        }
-      }
-
+  calcCartTotal() {
+    this.cartTotal = 0
+    this.cartItems.forEach(item => {
+      this.cartTotal += (item.qty * item.price)
+    })
   }
 }
+//   addToCart( product: Product ) {
+
+//       if (this.cartItems.length === 0) {
+//         this.cartItems.push({
+//           productId: product.id,
+//           productName: product.name,
+//           qty: 1,
+//           price: product.price
+//         })
+//         this.cartTotal = 0
+//         this.cartItems.forEach(item => {
+//           this.cartTotal += (item.qty * item.price)
+//       })
+
+//       } else {
+//         for (let i in this.cartItems) {
+//           if(this.cartItems[i].productId === product.id ) { 
+//           this.cartItems[i].qty++
+//         } else {
+//           this.cartItems.push({
+//             productId: product.id,
+//             productName: product.name,
+//             qty: 1,
+//             price: product.price
+//           })
+//           this.cartTotal = 0
+//           this.cartItems.forEach(item => {
+//             this.cartTotal += (item.qty * item.price)
+//         })
+
+//         }
+          
+//         }
+//       }
+
+//   }
+// }

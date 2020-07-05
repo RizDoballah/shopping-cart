@@ -1,5 +1,4 @@
 import { Product } from './product';
-import { timeStamp } from 'console';
 
 export class CartItem {
     id: number;
