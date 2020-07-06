@@ -1,3 +1,6 @@
 <div class="cart-item">
-    <span>{{ cartItem.productName }}</span> * <span>{{cartItem.qty}}</span> : <strong>{{ (cartItem.qty * cartItem.price) | currency }}</strong><span class="float-right delete">x</span>
+    <span>{{ cartItem.productName }}
+
+    </span> * <span>{{cartItem.qty}}</span> : <strong>{{ (cartItem.qty * cartItem.price) | currency }}</strong>
+    <span (click)="handleRemoveFromCart()" class="float-right delete">x</span>
 </div>

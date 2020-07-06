@@ -3,6 +3,7 @@ import { MessengerService } from 'src/app/services/messenger.service';
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cart-item';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -43,6 +44,15 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item.qty * item.price)
     })
   }
+
+  deleteItem(cartItem: CartItem) {
+    this.cartService.removeFromCart(cartItem)
+      // .pipe(catchError(error => console.error(error)))
+      .subscribe(() => {
+        this.cartItems= this.cartItems.filter((item) => item.id != cartItem.id) 
+      }
+    )
+  } 
 }
 //   addToCart( product: Product ) {
 

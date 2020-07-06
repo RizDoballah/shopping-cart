@@ -1,4 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
+import { CartItem } from 'src/app/models/cart-item';
+
+
 
 
 @Component({
@@ -8,11 +12,21 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CartItemComponent implements OnInit {
 
-  @Input() cartItem: any
-
-  constructor() { }
+  @Input() cartItem: CartItem;
+  @Output() onRemove: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+ 
+  
+  
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
+  handleRemoveFromCart() {
+    this.onRemove.emit(this.cartItem)
+    // this.cartService.removeFromCart(this.cartItem).subscribe()
+    
+
+  }
 }
+

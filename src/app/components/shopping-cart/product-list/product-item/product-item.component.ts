@@ -47,9 +47,8 @@ export class ProductItemComponent implements OnInit {
       this.cartservice.addToCart(this.productItem).subscribe(() => {
         this.msg.sendMsg(this.productItem);
       })
-     
     }
-
+  
     handleAddToWishlist() {
       this.wishlistService.addToWishlist(this.productItem.id).subscribe(() => {
         this.addedToWishlist = true;
