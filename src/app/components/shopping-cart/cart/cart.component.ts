@@ -4,6 +4,8 @@ import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { CartItem } from 'src/app/models/cart-item';
 import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-cart',
@@ -17,7 +19,8 @@ export class CartComponent implements OnInit {
   cartTotal = 0
 
   constructor(private msg: MessengerService,
-    private cartService: CartService) { }
+    private cartService: CartService,
+    private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.handleSubscription();
@@ -46,14 +49,20 @@ export class CartComponent implements OnInit {
   }
 
   deleteItem(cartItem: CartItem) {
+    this.spinnerService.show();
     this.cartService.removeFromCart(cartItem)
-      // .pipe(catchError(error => console.error(error)))
-      .subscribe(() => {
-        this.cartItems= this.cartItems.filter((item) => item.id != cartItem.id) 
-      }
+    .pipe(
+      catchError(err => {
+          console.log('Handling error locally and rethrowing it...', err);
+          return throwError(err);
+      })
     )
-  } 
-}
+    .subscribe(() => {
+        this.cartItems= this.cartItems.filter((item) => item.id != cartItem.id)
+        this.spinnerService.hide(); 
+      });
+    } 
+  }
 //   addToCart( product: Product ) {
 
 //       if (this.cartItems.length === 0) {

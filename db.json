@@ -46,14 +46,28 @@
   "cart": [
     {
       "product": {
-        "id": 6,
-        "name": "Prince",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ",
-        "imgUrl": "https://tennisscanner.it/wp-content/uploads/2018/04/dunlop-nt-r30racchetta-da-tennis-unisex-nt-r30-gelb-4.jpg",
-        "price": 180
+        "id": 3,
+        "name": "Yonex",
+        "description": " ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem ve",
+        "imgUrl": "https://www.mistertennis.com/images/1-media/dunlop/racket/Dunlop-NT-Tour-Racchetta-Tennis-677352_B_1.jpg",
+        "price": 189
       },
-      "id": 3
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 1,
+        "name": "Wilson",
+        "description": "magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia",
+        "imgUrl": "https://shop.wilson.com/it-it/media/catalog/product/cache/154/image/1800x/040ec09b1e35df139433887a97daa66f/7/b/7b75c41f5bb94ce53bc4b37a8de61cc04f6d22f2_wrt73741u_ultra_100l_blue_light_blue_side.jpg",
+        "price": 199
+      },
+      "id": 5
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "id": 2
+    }
+  ]
 }

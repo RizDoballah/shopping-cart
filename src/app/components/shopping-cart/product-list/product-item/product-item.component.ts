@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output} from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { MatDialog, MatDialogConfig,} from '@angular/material/dialog';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
@@ -15,9 +15,11 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductItemComponent implements OnInit {
   
-  @Input() productItem: Product
+  @Input() productItem: Product;
 
-  @Input() addedToWishlist: boolean
+  @Input() addedToWishlist: boolean;
+
+  @Output() onAdd: EventEmitter<Product> = new EventEmitter<Product>();
   
   constructor( public matDialog: MatDialog,
      private msg: MessengerService,
@@ -44,9 +46,7 @@ export class ProductItemComponent implements OnInit {
     }
 
     handleAddToCart() {
-      this.cartservice.addToCart(this.productItem).subscribe(() => {
-        this.msg.sendMsg(this.productItem);
-      })
+      this.onAdd.emit(this.productItem)
     }
   
     handleAddToWishlist() {

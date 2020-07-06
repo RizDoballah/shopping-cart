@@ -24,9 +24,6 @@ export class CartItemComponent implements OnInit {
 
   handleRemoveFromCart() {
     this.onRemove.emit(this.cartItem)
-    // this.cartService.removeFromCart(this.cartItem).subscribe()
-    
-
   }
 }
 
