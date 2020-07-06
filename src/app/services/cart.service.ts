@@ -39,4 +39,7 @@ export class CartService {
   addToCart(product: Product): Observable<any> {
     return this.http.post(cartUrl, { product });
   }
+  removeFromCart(product: Product) {
+    return this.http.delete(cartUrl + '/' + product.id);
+  }
 }
